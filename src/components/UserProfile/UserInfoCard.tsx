@@ -15,15 +15,16 @@ export default function HeroInfoCard() {
   // Local state for editing
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState({
-    desc1:"",
-    desc2:""  });
+    desc1: "",
+    desc2: "",
+  });
 
   useEffect(() => {
     // fetch data
     const fetchData = async () => {
       const response = await fetchHeroSection();
       // const response = await axios.get('http://localhost:5000/api/herosection');
-      console.log(response)
+      console.log(response);
       setTitle(response[0].title);
       setDescription({
         desc1: response[0].description_one,
@@ -114,8 +115,8 @@ export default function HeroInfoCard() {
       </div>
 
       {/* Modal */}
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">
-        <div className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[1000px] m-4">
+        <div className="no-scrollbar relative w-full max-w-[1200px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
           {/* Header */}
           <div className="px-2 pr-14">
             <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
@@ -139,24 +140,26 @@ export default function HeroInfoCard() {
                 </div>
 
                 <div>
-                  <Label>Hero Description</Label>
-                  <Input
-                    type="text"
+                  <Label>Hero first Description</Label>
+                  <textarea
                     value={description.desc1}
                     onChange={(e) =>
                       setDescription({ ...description, desc1: e.target.value })
                     }
+                    className="w-full text-gray-800 p-3 border border-gray-300 rounded-lg h-32 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+                    // className={inputClasses}
                   />
                 </div>
                 <div>
-                  <Label>Hero Description</Label>
-                  <Input
-                    type="text"
+                  <Label>Hero second Description</Label>
+                  <textarea
                     value={description.desc2}
                     onChange={(e) =>
                       setDescription({ ...description, desc2: e.target.value })
                     }
-                  />
+                    className="w-full p-3 border border-gray-300 rounded-lg h-32 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 "
+                    placeholder="Enter hero description..."
+                  ></textarea>
                 </div>
               </div>
             </div>
