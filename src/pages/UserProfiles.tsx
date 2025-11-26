@@ -4,6 +4,9 @@ import UserInfoCard from "../components/UserProfile/UserInfoCard";
 // import UserAddressCard from "../components/UserProfile/UserAddressCard";
 import PageMeta from "../components/common/PageMeta";
 import AboutInfoCard from "../components/UserProfile/AboutInfoCard";
+import CallToActionAdmin from "../components/UserProfile/CallToActionAdmin";
+import ServicesAdmin from "../components/UserProfile/ServicesAdmin";
+import FeatureSection from "../components/UserProfile/FeatureAdmin";
 
 export default function UserProfiles() {
   return (
@@ -22,6 +25,9 @@ export default function UserProfiles() {
           <UserInfoCard />
           {/* <UserAddressCard /> */}
           <AboutInfoCard />
+          <FeatureSection />
+          <CallToActionAdmin />
+          <ServicesAdmin />
         </div>
       </div>
     </>
